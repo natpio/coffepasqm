@@ -11,13 +11,23 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# --- CUSTOM SQM DARK STYLE CSS ---
+# --- CUSTOM SQM DARK STYLE CSS + BACKGROUND IMAGE ---
 st.markdown("""
     <style>
-    /* Główny background i czcionki */
+    /* Zdjęcie tła na całą aplikację */
     .stApp {
-        background-color: #000000;
+        background-image: url('sqm.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
         color: #ffffff;
+    }
+
+    /* Przezroczyste kontenery dla lepszej czytelności tekstu */
+    .stApp .block-container {
+        background-color: rgba(0, 0, 0, 0.7); /* Czarne, półprzezroczyste tło pod tekstem */
+        padding: 2rem;
+        border-radius: 10px;
     }
     
     /* Stylizacja nagłówków */
@@ -63,7 +73,7 @@ st.markdown("""
     /* Stopka */
     .footer-text {
         font-size: 10px;
-        color: #444;
+        color: #888;
         text-align: center;
         margin-top: 20px;
     }
@@ -76,10 +86,10 @@ with col_logo:
     # Stylizowany tekst zamiast logo (jeśli nie masz pliku)
     st.markdown("<h2 style='margin:0;'>SQM</h2>", unsafe_allow_html=True)
 with col_nav:
-    st.write("<p style='text-align: right; color: #666; font-size: 12px;'>ABOUT &nbsp;&nbsp; WORKS &nbsp;&nbsp; SERVICES &nbsp;&nbsp; CONTACT &nbsp;&nbsp; SQM ESPAÑA</p>", unsafe_allow_html=True)
+    st.write("<p style='text-align: right; color: #aaa; font-size: 12px;'>ABOUT &nbsp;&nbsp; WORKS &nbsp;&nbsp; SERVICES &nbsp;&nbsp; CONTACT &nbsp;&nbsp; SQM ESPAÑA</p>", unsafe_allow_html=True)
 
 st.title("SQM BI - Coffee Margin Portal")
-st.write("<p style='color: #888;'>Wydział Logistyki i Planowania Transportu</p>", unsafe_allow_html=True)
+st.write("<p style='color: #ccc;'>Wydział Logistyki i Planowania Transportu</p>", unsafe_allow_html=True)
 st.write("---")
 
 # --- MAIN LAYOUT ---
@@ -140,7 +150,7 @@ with col3:
                         <b>Reason:</b> Project Margin (0.8%) is below the Caffeine-Tolerance Threshold (Requires 28.5% for {drink_type}).
                     </p>
                     <hr style="border-color: #333;">
-                    <p style="font-size: 0.85em; color: #888;">
+                    <p style="font-size: 0.85em; color: #aaa;">
                         Financial Audit detected <b>115% Transport Overage</b>. 
                         Coffee resources are temporarily locked for this project.
                     </p>
@@ -155,7 +165,7 @@ st.write("")
 st.write("")
 st.write("")
 st.markdown("""
-    <div style="margin-top: 60px; opacity: 0.2;">
+    <div style="margin-top: 60px;">
         <h1 style="font-size: 70px; line-height: 0.85; color: white; margin: 0; font-weight: 900;">
             NO <span style="color: #ff4b4b;">MARGIN</span>.
         </h1>
@@ -172,7 +182,7 @@ st.markdown("""
 st.divider()
 col_f1, col_f2 = st.columns(2)
 with col_f1:
-    st.markdown("<p style='color: #444; font-size: 11px;'>SQM Business Intelligence System v9.9.2 | 2026-04-01</p>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #aaa; font-size: 11px;'>SQM Business Intelligence System v9.9.2 | 2026-04-01</p>", unsafe_allow_html=True)
 with col_f2:
     if st.toggle("Service Override"):
         st.balloons()
